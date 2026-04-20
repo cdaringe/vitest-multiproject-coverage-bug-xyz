@@ -1,0 +1,14 @@
+{
+  "name": "vitest-multiproject-coverage-repro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:single": "vitest run --config vitest.single.config.ts --coverage",
+    "test:multi": "vitest run --config vitest.multi.config.ts --coverage"
+  },
+  "devDependencies": {
+    "@vitest/coverage-istanbul": "^4.1.4",
+    "jsdom": "^27.0.1",
+    "vitest": "^4.1.4"
+  }
+}
