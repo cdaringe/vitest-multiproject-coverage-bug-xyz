@@ -14,7 +14,8 @@ This reproduction shows a coverage regression when the same `jsdom` test is run:
 
 ## Files
 
-- `src/math.ts`: small shared module covered by the `jsdom` test
+- `src/math.ts`: small source module used only by the `jsdom` test
+- `src/runtime.ts`: small source module used only by the `node` test
 - `src/browser.jsdom.spec.ts`: small `jsdom` test
 - `src/server.node.spec.ts`: small `node` test
 - `vitest.single.config.ts`: control case
@@ -32,6 +33,9 @@ The multi-project command passes the tests, but coverage collapses to `0/0`.
 
 - `coverage/coverage-final.json` becomes `{}`
 - `coverage/cobertura.xml` reports `lines-valid="0"` and `lines-covered="0"`
+- `vitest list --config vitest.multi.config.ts` shows one file per project:
+  `[browser] src/browser.jsdom.spec.ts`
+  `[server] src/server.node.spec.ts`
 
 ## Commands
 

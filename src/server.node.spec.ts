@@ -1,9 +1,8 @@
 import { describe, expect, it } from "vitest";
-
-const readRuntime = () => process.release.name;
+import { runtimeName } from "./runtime";
 
 describe("server project", () => {
   it("runs in node", () => {
-    expect(readRuntime()).toBe("node");
+    expect(runtimeName()).toBe("node");
   });
 });

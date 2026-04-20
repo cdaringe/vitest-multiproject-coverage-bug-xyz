@@ -1,10 +1,12 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig, ViteUserConfig } from "vitest/config";
+
+const reporter: Required<Required<Required<ViteUserConfig>['test']>['coverage']>['reporter'] = [["cobertura" as const, { file: "cobertura.xml" }], "text-summary" as const, "json" as const];
 
 export const sharedCoverage = {
   enabled: true,
   provider: "istanbul" as const,
   include: ["src/math.ts"],
-  reporter: [["cobertura", { file: "cobertura.xml" }], "text-summary", "json"],
+  reporter,
 };
 
 export default defineConfig({
